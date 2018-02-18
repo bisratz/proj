@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SchedulingApp.Models.Appointment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Scheduling</h2>
+
+<p>
+    @Html.ActionLink("Schedule New Appointment", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.customer.LastName)
+        </th>     
+        <th>
+            @Html.DisplayNameFor(model => model.worker.LastName)
+        </th>    
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.customer.LastName)
+        </td>  
+        <td>
+            @Html.DisplayFor(modelItem => item.worker.LastName)
+        </td>       
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |            
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
